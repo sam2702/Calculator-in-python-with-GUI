@@ -1,10 +1,11 @@
 from tkinter import *
+import math
  
 window = Tk()
  
-window.title("Cal")
+window.title("Calculator")
  
-window.geometry('350x200')
+window.geometry('200x200')
  
 
  
@@ -22,9 +23,12 @@ res=0
 res1=0
 res2=0
 res3=0
+res4=0
+res5=0
+res6=0
  
 def clicked():
-    global res,res1,res2,res3
+    global res,res1,res2,res3,res4,res5,res6
  
     res =  int(txt.get())+ int(txt1.get())
  
@@ -49,22 +53,71 @@ def clicked():
  
     lbl.grid(column=3, row=7)
 
-
-btn = Button(window, text="Add", command=clicked)
+    res4 =  int(txt.get())^ int(txt1.get())
  
-btn.grid(column=0, row=4)
-
-btn = Button(window, text="Mul", command=clicked)
+    lbl = Label(window, text=res4)
  
-btn.grid(column=1, row=4)
+    lbl.grid(column=0, row=8)
 
-btn = Button(window, text="Sub", command=clicked)
+    res3 =  int(txt.get())/ int(txt1.get())
  
-btn.grid(column=2, row=4)
+    lbl = Label(window, text=res3)
+ 
+    lbl.grid(column=3, row=7)
 
-btn = Button(window, text="Div", command=clicked)
+    res6 =  int(txt.get())% int(txt1.get())
  
-btn.grid(column=3, row=4)
+    lbl = Label(window, text=res6)
+ 
+    lbl.grid(column=3, row=8)
+
+
+
+
+
+btn = Button(window, text="+",width=3, command=clicked)
+btn.grid(column=0, row=5)
+btn = Button(window, text="x",width=3, command=clicked)
+btn.grid(column=1, row=5)
+btn = Button(window, text="-",width=3, command=clicked)
+btn.grid(column=2, row=5)
+btn = Button(window, text="÷",width=3, command=clicked)
+btn.grid(column=3, row=5)
+
+btn=Button(window,text='C',width=3,command=clicked)
+btn.grid(row=4, column=1)
+btn=Button(window,text='AC',width=3,command=clicked)
+btn.grid(row=4, column=2)
+btn=Button(window,text=".",width=3,command=clicked)
+btn.grid(row=4, column=1)
+btn=Button(window,text="(",width=3,command=clicked)
+btn.grid(row=6, column=0)
+btn=Button(window,text=")",width=3,command=clicked)
+btn.grid(row=6, column=1)
+btn=Button(window,text="√",width=3,command=clicked)
+btn.grid(row=6, column=2)
+btn=Button(window,text="x²",width=3,command=clicked)
+btn.grid(row=6, column=3)
+btn=Button(window,text="7",width=3,command=clicked)
+btn.grid(row=1, column=0)
+btn=Button(window,text="8",width=3,command=clicked)
+btn.grid(row=1, column=1)
+btn=Button(window,text="9",width=3,command=clicked)
+btn.grid(row=1, column=2)
+btn=Button(window,text="4",width=3,command=clicked)
+btn.grid(row=2, column=0)
+btn=Button(window,text="5",width=3,command=clicked)
+btn.grid(row=2, column=1)
+btn=Button(window,text="6",width=3,command=clicked)
+btn.grid(row=2, column=2)
+btn=Button(window,text="1",width=3,command=clicked)
+btn.grid(row=3, column=0)
+btn=Button(window,text="2",width=3,command=clicked)
+btn.grid(row=3, column=1)
+btn=Button(window,text="3",width=3,command=clicked)
+btn.grid(row=3, column=2)
+btn=Button(window,text="0",width=3,command=clicked)
+btn.grid(row=4, column=0)
  
 window.mainloop()
 
